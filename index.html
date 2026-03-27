@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>X1 Hub</title>
+  <title>Iron X1 Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts to match your existing pages -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -14,98 +18,220 @@
 
     html, body {
       height: 100%;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #05060a;
-      color: #fff;
       overflow: hidden;
     }
 
-    .split-container {
-      display: flex;
-      height: 100vh;
-      width: 100vw;
-      position: relative;
+    body {
+      font-family: 'Exo 2', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #000;
+      color: #f8fafc;
     }
 
-    .side {
+    .split-root {
+      position: relative;
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .half {
       flex: 1;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       cursor: pointer;
       transition: flex 0.35s ease, filter 0.35s ease, transform 0.35s ease;
       overflow: hidden;
     }
 
-    .side::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.18;
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
-
-    /* Left side: home-5020064604 */
-    .side-left {
-      background: radial-gradient(circle at top left, #1a68ff 0%, #05060a 55%, #000 100%);
-      border-right: 1px solid rgba(255,255,255,0.12);
-    }
-    .side-left::before {
-      background-image:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.3) 0, transparent 55%),
-        radial-gradient(circle at 90% 80%, rgba(23,227,255,0.35) 0, transparent 60%);
-    }
-
-    /* Right side: x1nerator */
-    .side-right {
-      background: radial-gradient(circle at top right, #ff1744 0%, #2b0014 48%, #05060a 100%);
-      border-left: 1px solid rgba(255,255,255,0.12);
-    }
-    .side-right::before {
-      background-image:
-        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.35) 0, transparent 55%),
-        radial-gradient(circle at 15% 85%, rgba(255,111,0,0.5) 0, transparent 60%);
-    }
-
-    .side:hover {
-      flex: 1.2;
+    .half:hover {
+      flex: 1.15;
       filter: brightness(1.1);
       transform: scale(1.01);
-      z-index: 2;
-    }
-
-    .side-content {
-      position: relative;
-      text-align: center;
-      padding: 1.5rem;
       z-index: 1;
     }
 
-    .side-title {
-      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
+    /* LEFT: X1NERATOR / nebula aesthetic */
+    .left {
+      --color-primary: #38bdf8;
+      --color-primary-rgb: 56,189,248;
+      --color-accent: #7dd3fc;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56,189,248,0.18) 0, transparent 55%),
+        radial-gradient(circle at 75% 90%, rgba(124,58,237,0.22) 0, transparent 60%),
+        radial-gradient(circle at 0% 100%, rgba(16,185,129,0.18) 0, transparent 55%),
+        #010410;
+      border-right: 1px solid rgba(148, 163, 184, 0.4);
     }
 
-    .side-sub {
-      font-size: clamp(0.85rem, 1vw, 1rem);
-      opacity: 0.8;
-      max-width: 20rem;
-      margin: 0 auto;
-    }
-
-    .side-indicator {
-      margin-top: 1.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+    .left::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16) 0, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(56,189,248,0.18) 0, transparent 65%);
       opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
 
-    .center-hub {
+    .left-content {
+      position: relative;
+      padding: 2rem;
+      text-align: left;
+      max-width: 480px;
+      z-index: 1;
+    }
+
+    .left-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #7dd3fc;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    .left-title {
+      font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .left-sub {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      max-width: 22rem;
+      line-height: 1.45;
+      opacity: 0.9;
+    }
+
+    .left-chip {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(56,189,248,0.45);
+      box-shadow:
+        0 0 14px rgba(56,189,248,0.55),
+        inset 0 0 10px rgba(15,23,42,0.9);
+    }
+
+    .left-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,0.9);
+    }
+
+    /* RIGHT: Matrix / neon terminal aesthetic */
+    .right {
+      background-color: #000000;
+      color: #00ff41;
+      font-family: 'Courier New', Courier, monospace;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300ff41' fill-opacity='0.03'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");
+      background-size: 150px 150px;
+    }
+
+    .right::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.18) 50%,
+        rgba(0,0,0,0.18)
+      );
+      background-size: 100% 4px;
+      mix-blend-mode: soft-light;
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .right-content {
+      position: relative;
+      padding: 2rem;
+      max-width: 520px;
+      border-radius: 12px;
+      background: rgba(0, 5, 0, 0.9);
+      border: 1px solid #00ff41;
+      box-shadow:
+        0 0 10px rgba(0, 255, 65, 0.18),
+        inset 0 0 10px rgba(0, 255, 65, 0.08);
+      animation: terminalStrobe 4s infinite;
+      z-index: 1;
+    }
+
+    .right-header {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: #00ff41;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 0 8px rgba(0,255,65,0.6);
+    }
+
+    .right-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 0 8px rgba(0,255,65,0.6);
+    }
+
+    .right-body {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .right-body span {
+      color: #55ff77;
+    }
+
+    .right-footer {
+      margin-top: 1.4rem;
+      font-size: 0.75rem;
+      color: #00b32e;
+    }
+
+    @keyframes terminalStrobe {
+      0%,100% {
+        box-shadow:
+          0 0 10px rgba(0,255,65,0.1),
+          inset 0 0 10px rgba(0,255,65,0.05);
+        border-color: #00aa22;
+      }
+      40% {
+        box-shadow:
+          0 0 25px rgba(0,255,65,0.3),
+          inset 0 0 15px rgba(0,255,65,0.1);
+        border-color: #00ff41;
+      }
+      45% {
+        box-shadow:
+          0 0 45px rgba(0,255,65,0.6),
+          inset 0 0 25px rgba(0,255,65,0.3);
+        border-color: #55ff77;
+      }
+      50% {
+        box-shadow:
+          0 0 25px rgba(0,255,65,0.3),
+          inset 0 0 15px rgba(0,255,65,0.1);
+        border-color: #00ff41;
+      }
+    }
+
+    /* CENTER EMBLEM */
+    .hub-wrap {
       position: absolute;
       inset: 0;
       display: flex;
@@ -114,18 +240,18 @@
       pointer-events: none;
     }
 
-    .hub-inner {
+    .hub {
+      position: relative;
       width: min(40vw, 360px);
       max-width: 380px;
-      position: relative;
       pointer-events: auto;
+      transition: transform 0.4s ease;
     }
 
-    .hub-inner img {
+    .hub img {
       width: 100%;
-      height: auto;
-      display: block;
       border-radius: 18px;
+      display: block;
       box-shadow:
         0 0 30px rgba(0,0,0,0.7),
         0 0 80px rgba(255,255,255,0.15);
@@ -135,42 +261,23 @@
         box-shadow 0.4s ease;
     }
 
-    .hub-inner::before {
+    .hub::before {
       content: "";
       position: absolute;
       inset: -10%;
       border-radius: 26px;
-      background: conic-gradient(from 190deg, #1a68ff, #ff1744, #ffeb3b, #1a68ff);
-      opacity: 0.3;
-      filter: blur(24px);
+      background: conic-gradient(
+        from 200deg,
+        rgba(56,189,248,0.9),
+        rgba(56,189,248,0.2),
+        rgba(0,255,65,0.9),
+        rgba(0,255,65,0.2),
+        rgba(56,189,248,0.9)
+      );
+      opacity: 0.35;
+      filter: blur(26px);
       z-index: -1;
-      transition: opacity 0.4s ease, filter 0.4s ease;
-    }
-
-    .hub-inner.hover-left img {
-      filter: hue-rotate(-15deg) saturate(1.2);
-      transform: translateX(-8px) scale(1.03);
-      box-shadow:
-        0 0 40px rgba(0,128,255,0.7),
-        0 0 120px rgba(0,200,255,0.4);
-    }
-
-    .hub-inner.hover-right img {
-      filter: hue-rotate(20deg) saturate(1.35);
-      transform: translateX(8px) scale(1.03);
-      box-shadow:
-        0 0 40px rgba(255,23,68,0.8),
-        0 0 120px rgba(255,111,0,0.55);
-    }
-
-    .hub-inner.hover-left::before {
-      opacity: 0.5;
-      filter: blur(26px) saturate(1.2);
-    }
-
-    .hub-inner.hover-right::before {
-      opacity: 0.6;
-      filter: blur(26px) saturate(1.4);
+      transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
     }
 
     .hub-label {
@@ -178,119 +285,159 @@
       bottom: -2.5rem;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      opacity: 0.8;
       text-align: center;
+      color: #cbd5f5;
+      opacity: 0.8;
       white-space: nowrap;
+      font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
     }
 
     .hub-label span {
       opacity: 0.7;
     }
 
-    /* Click cue on mobile */
+    /* Hover auras */
+    .hub.left-focus img {
+      filter: hue-rotate(-10deg) saturate(1.2);
+      transform: translateX(-8px) scale(1.03);
+      box-shadow:
+        0 0 18px rgba(56,189,248,0.8),
+        0 0 100px rgba(56,189,248,0.5);
+    }
+
+    .hub.right-focus img {
+      filter: hue-rotate(18deg) saturate(1.35);
+      transform: translateX(8px) scale(1.03);
+      box-shadow:
+        0 0 20px rgba(0,255,65,0.9),
+        0 0 110px rgba(0,255,65,0.55);
+    }
+
+    .hub.left-focus::before {
+      opacity: 0.55;
+      filter: blur(26px) saturate(1.2);
+      transform: translateX(-4px);
+    }
+
+    .hub.right-focus::before {
+      opacity: 0.65;
+      filter: blur(26px) saturate(1.4);
+      transform: translateX(4px);
+    }
+
+    /* Mobile: stack halves, keep emblem center */
     @media (max-width: 768px) {
-      .split-container {
+      .split-root {
         flex-direction: column;
       }
-      .side {
+      .half {
         flex: 1;
       }
-      .side:hover {
+      .half:hover {
+        flex: 1;
         transform: none;
         filter: none;
-        flex: 1;
       }
-      .center-hub {
-        pointer-events: none;
+      .left-content,
+      .right-content {
+        padding: 1.5rem 1.25rem;
       }
       .hub-label {
         bottom: -2rem;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="split-container">
-    <!-- LEFT SIDE -->
-    <div class="side side-left"
-         data-target="https://home-5020064604.app-ionos.space/">
-      <div class="side-content">
-        <div class="side-title">HOME SPACE</div>
-        <div class="side-sub">
-          Calm control surface, structured tools, and your base of operations.
+  <div class="split-root">
+    <!-- LEFT HALF: X1NERATOR SPACE UI -->
+    <div class="half left" data-target="https://home-5020064604.app-ionos.space/">
+      <div class="left-content">
+        <div class="left-eyebrow">X1 CONTROL</div>
+        <div class="left-title">Operations Console</div>
+        <p class="left-sub">
+          Dial into the structured X1 toolset. Manage burns, distributions, and on‑chain ops from a precise control surface.
+        </p>
+        <div class="left-chip">
+          <span class="left-chip-dot"></span>
+          <span>Route traffic to Home Space</span>
         </div>
-        <div class="side-indicator">ENTER</div>
       </div>
     </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="side side-right"
-         data-target="https://x1nerator.xyz/">
-      <div class="side-content">
-        <div class="side-title">X1NERATOR</div>
-        <div class="side-sub">
-          High‑octane X1 energy, drops, and the wild side of the network.
+    <!-- RIGHT HALF: MATRIX TERMINAL -->
+    <div class="half right" data-target="https://x1nerator.xyz/">
+      <div class="right-content">
+        <div class="right-header">X1NERATOR // MATRIX TERMINAL</div>
+        <div class="right-title">> ACCESS CORE FIREWALL</div>
+        <div class="right-body">
+          INIT SEQUENCE: <span>READY</span><br />
+          WALLET LINK: <span>AWAITING HANDSHAKE</span><br />
+          <br />
+          ENTER THE HIGH‑VOLTAGE SIDE OF THE X1 STACK.  
+          BURN. MINT. DISTRIBUTE. EXECUTE.
         </div>
-        <div class="side-indicator">LAUNCH</div>
+        <div class="right-footer">
+          NOTE: All operations are final. Proceed only if you accept full responsibility.
+        </div>
       </div>
     </div>
 
-    <!-- CENTER HUB IMAGE -->
-    <div class="center-hub">
-      <div class="hub-inner" id="hub">
-        <img src="IronMan-X1.jpg" alt="X1 Hub" />
+    <!-- CENTER EMBLEM -->
+    <div class="hub-wrap">
+      <div class="hub" id="hub">
+        <img src="IronMan-X1.jpg" alt="X1 Iron Hub" />
         <div class="hub-label">
-          <span>MOVE OR TAP LEFT / RIGHT TO SHIFT AURA</span>
+          <span>SWITCH ALIGNMENT • LEFT = CONTROL · RIGHT = CHAOS</span>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    const sides = document.querySelectorAll(".side");
+    const halves = document.querySelectorAll(".half");
     const hub = document.getElementById("hub");
 
-    function clearHubState() {
-      hub.classList.remove("hover-left", "hover-right");
+    function clearFocus() {
+      hub.classList.remove("left-focus", "right-focus");
     }
 
-    sides.forEach(side => {
-      const target = side.getAttribute("data-target");
+    halves.forEach(half => {
+      const target = half.getAttribute("data-target");
 
-      side.addEventListener("mouseenter", () => {
-        if (side.classList.contains("side-left")) {
-          hub.classList.add("hover-left");
-          hub.classList.remove("hover-right");
+      half.addEventListener("mouseenter", () => {
+        if (half.classList.contains("left")) {
+          hub.classList.add("left-focus");
+          hub.classList.remove("right-focus");
         } else {
-          hub.classList.add("hover-right");
-          hub.classList.remove("hover-left");
+          hub.classList.add("right-focus");
+          hub.classList.remove("left-focus");
         }
       });
 
-      side.addEventListener("mouseleave", () => {
-        clearHubState();
+      half.addEventListener("mouseleave", () => {
+        clearFocus();
       });
 
-      side.addEventListener("click", () => {
+      half.addEventListener("click", () => {
         window.location.href = target;
       });
     });
 
-    // Also react when the pointer moves across the center from anywhere
+    // Global pointer movement for desktop
     document.addEventListener("mousemove", (e) => {
-      const width = window.innerWidth;
-      if (width <= 768) return; // keep it simple on mobile
-
-      if (e.clientX < width / 2) {
-        hub.classList.add("hover-left");
-        hub.classList.remove("hover-right");
+      const w = window.innerWidth;
+      if (w <= 768) return;
+      if (e.clientX < w / 2) {
+        hub.classList.add("left-focus");
+        hub.classList.remove("right-focus");
       } else {
-        hub.classList.add("hover-right");
-        hub.classList.remove("hover-left");
+        hub.classList.add("right-focus");
+        hub.classList.remove("left-focus");
       }
     });
   </script>
