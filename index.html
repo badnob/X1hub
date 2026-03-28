@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Exo 2', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+      background: #020617;
       color: #f9fafb;
     }
 
@@ -33,71 +33,50 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: flex 0.45s ease, filter 0.45s ease, transform 0.45s ease;
+      transition: flex 0.4s ease, filter 0.4s ease, transform 0.4s ease;
       overflow: hidden;
     }
 
     .half:hover {
-      flex: 1.12;
-      filter: brightness(1.08);
+      flex: 1.1;
+      filter: brightness(1.05);
       transform: scale(1.01);
       z-index: 1;
     }
 
     /******** LEFT – MATRIX HOLDERS / AIRDROP ********/
     .left {
-      background-color: #020302;
+      background: #020302;
       color: #00ff41;
       font-family: 'Courier New', Courier, monospace;
     }
 
+    /* simple CRT scanlines */
     .left::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image:
         repeating-linear-gradient(
-          180deg,
-          rgba(0,255,65,0.16) 0px,
-          rgba(0,255,65,0.16) 1px,
+          to bottom,
+          rgba(0,255,65,0.18) 0px,
+          rgba(0,255,65,0.18) 1px,
           transparent 1px,
           transparent 3px
         );
-      opacity: 0.35;
+      opacity: 0.25;
       pointer-events: none;
-    }
-
-    .left::after {
-      content: "";
-      position: absolute;
-      inset: -40% 0 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0),
-        rgba(0,255,65,0.35),
-        rgba(0,0,0,0)
-      );
-      background-size: 100% 260px;
-      opacity: 0.4;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      animation: matrixSweep 14s linear infinite;
-    }
-
-    @keyframes matrixSweep {
-      0% { transform: translateY(-260px); }
-      100% { transform: translateY(0); }
     }
 
     .left-content {
       position: relative;
-      padding: 2.1rem;
-      max-width: 520px;
+      padding: 2rem;
+      max-width: 480px;
       border-radius: 14px;
       background: radial-gradient(circle at 10% 0%, #001607 0, #000 60%);
       border: 1px solid #00ff41;
       box-shadow:
-        0 0 18px rgba(0,255,65,0.35),
+        0 0 16px rgba(0,255,65,0.3),
         inset 0 0 10px rgba(0,0,0,0.9);
       z-index: 1;
     }
@@ -133,44 +112,17 @@
       --color-primary: #38bdf8;
       --color-primary-rgb: 56,189,248;
       background:
-        radial-gradient(circle at 0% 0%, rgba(56,189,248,0.22) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(124,58,237,0.26) 0, transparent 60%),
+        radial-gradient(circle at 0% 0%, rgba(56,189,248,0.23) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(124,58,237,0.25) 0, transparent 60%),
         #020617;
-    }
-
-    .right::before {
-      content: "";
-      position: absolute;
-      inset: 10% -40%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(56,189,248,0.25),
-        rgba(56,189,248,0.8),
-        rgba(56,189,248,0.25),
-        transparent
-      );
-      opacity: 0;
-      pointer-events: none;
-      transform: translateX(-60%);
-      animation: scanLine 11s linear infinite;
-    }
-
-    @keyframes scanLine {
-      0%   { opacity: 0; transform: translateX(-70%); }
-      10%  { opacity: 0.9; }
-      40%  { opacity: 0.4; transform: translateX(60%); }
-      60%  { opacity: 0; transform: translateX(80%); }
-      100% { opacity: 0; transform: translateX(80%); }
     }
 
     .right-content {
       position: relative;
-      padding: 2.2rem;
+      padding: 2.1rem;
       text-align: left;
-      max-width: 500px;
+      max-width: 480px;
       z-index: 1;
-      backdrop-filter: blur(4px);
     }
 
     .right-eyebrow {
@@ -179,7 +131,7 @@
       text-transform: uppercase;
       color: #7dd3fc;
       opacity: 0.92;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
     }
 
     .right-title {
@@ -190,7 +142,7 @@
       margin-bottom: 0.7rem;
       text-shadow:
         0 0 14px rgba(56,189,248,0.85),
-        0 0 40px rgba(56,189,248,0.5);
+        0 0 36px rgba(56,189,248,0.5);
       position: relative;
     }
 
@@ -202,19 +154,19 @@
       width: 80px;
       height: 2px;
       background: linear-gradient(90deg,#38bdf8,#22c1c3,transparent);
-      box-shadow: 0 0 16px rgba(56,189,248,0.7);
+      box-shadow: 0 0 14px rgba(56,189,248,0.7);
     }
 
     .right-sub {
       font-size: 0.9rem;
       color: #dbeafe;
-      max-width: 25rem;
+      max-width: 24rem;
       line-height: 1.55;
       opacity: 0.97;
     }
 
     .right-chip {
-      margin-top: 1.6rem;
+      margin-top: 1.5rem;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -224,8 +176,8 @@
       background: rgba(15,23,42,0.96);
       border: 1px solid rgba(56,189,248,0.75);
       box-shadow:
-        0 0 18px rgba(56,189,248,0.75),
-        inset 0 0 12px rgba(15,23,42,0.95);
+        0 0 16px rgba(56,189,248,0.7),
+        inset 0 0 10px rgba(15,23,42,0.95);
     }
 
     .right-chip-dot {
@@ -235,10 +187,10 @@
       background: #e11d48;
       box-shadow:
         0 0 10px rgba(248,113,113,0.85),
-        0 0 26px rgba(248,113,113,0.7);
+        0 0 24px rgba(248,113,113,0.7);
     }
 
-    /******** CENTER EMBLEM – REACTOR, CLEAN ********/
+    /******** CENTER EMBLEM – CLEAN ********/
     .hub-wrap {
       position: absolute;
       inset: 0;
@@ -251,35 +203,32 @@
 
     .hub {
       position: relative;
-      width: min(38vw, 320px);
-      max-width: 340px;
+      width: min(36vw, 300px);
+      max-width: 320px;
       pointer-events: auto;
       border-radius: 50%;
-      padding: 8px;
+      padding: 6px;
       background:
-        radial-gradient(circle at 30% 0%, rgba(255,255,255,0.4), transparent 60%),
+        radial-gradient(circle at 30% 0%, rgba(255,255,255,0.35), transparent 60%),
         conic-gradient(
           from 210deg,
-          rgba(0,255,65,0.9),
+          rgba(0,255,65,0.85),
           rgba(0,255,65,0.18),
-          rgba(56,189,248,0.9),
+          rgba(56,189,248,0.85),
           rgba(56,189,248,0.18),
-          rgba(0,255,65,0.9)
+          rgba(0,255,65,0.85)
         );
       box-shadow:
         0 0 18px rgba(0,0,0,0.95),
-        0 0 38px rgba(56,189,248,0.55),
-        0 0 38px rgba(0,255,65,0.55);
-      animation: emblemIdle 9s ease-in-out infinite;
+        0 0 34px rgba(56,189,248,0.5),
+        0 0 34px rgba(0,255,65,0.5);
+      animation: hubIdle 8s ease-in-out infinite;
     }
 
     .hub-inner {
-      position: relative;
       border-radius: 50%;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 15%, #ffffff2d 0, transparent 55%),
-        radial-gradient(circle at 50% 85%, #020617 0, #000 55%);
+      background: #000;
     }
 
     .hub img {
@@ -287,49 +236,28 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      filter: saturate(1.18) contrast(1.05);
+      filter: saturate(1.15);
       transition:
-        transform 0.45s ease,
-        filter 0.45s ease,
-        box-shadow 0.45s ease;
-    }
-
-    .hub-inner::after {
-      content: "";
-      position: absolute;
-      inset: 12%;
-      border-radius: 50%;
-      border: 1px dashed rgba(148,163,184,0.5);
-      opacity: 0.8;
-      box-shadow:
-        0 0 12px rgba(15,23,42,0.9),
-        0 0 22px rgba(148,163,184,0.45);
-      animation: ringOrbit 22s linear infinite;
-      pointer-events: none;
+        transform 0.4s ease,
+        filter 0.4s ease,
+        box-shadow 0.4s ease;
     }
 
     .hub::before {
       content: "";
       position: absolute;
-      inset: -14%;
+      inset: -12%;
       border-radius: 50%;
-      background: conic-gradient(
-        from 200deg,
-        rgba(0,255,65,0.8),
-        rgba(0,255,65,0.12),
-        rgba(56,189,248,0.8),
-        rgba(56,189,248,0.12),
-        rgba(0,255,65,0.8)
-      );
-      opacity: 0.32;
-      filter: blur(26px);
+      background: radial-gradient(circle, rgba(15,23,42,0.9), transparent 60%);
+      opacity: 0.45;
+      filter: blur(18px);
       z-index: -1;
-      transition: opacity 0.45s ease, filter 0.45s ease, transform 0.45s ease;
+      transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
     }
 
     .hub-label {
       position: absolute;
-      bottom: -2.5rem;
+      bottom: -2.4rem;
       left: 50%;
       transform: translateX(-50%);
       font-size: 0.68rem;
@@ -340,45 +268,40 @@
       opacity: 0.9;
       white-space: nowrap;
       font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
-      text-shadow: 0 0 10px rgba(15,23,42,0.95);
+      text-shadow: 0 0 8px rgba(15,23,42,0.95);
     }
 
-    @keyframes emblemIdle {
+    @keyframes hubIdle {
       0%,100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-8px) scale(1.02); }
-    }
-
-    @keyframes ringOrbit {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-360deg); }
+      50% { transform: translateY(-6px) scale(1.02); }
     }
 
     /* Alignment auras */
     .hub.left-focus img {
-      filter: hue-rotate(20deg) saturate(1.45);
-      transform: translateX(-7px) scale(1.06);
+      filter: hue-rotate(18deg) saturate(1.4);
+      transform: translateX(-6px) scale(1.05);
       box-shadow:
-        0 0 24px rgba(0,255,65,0.9),
-        0 0 110px rgba(0,255,65,0.7);
+        0 0 24px rgba(0,255,65,0.85),
+        0 0 90px rgba(0,255,65,0.7);
     }
 
     .hub.right-focus img {
-      filter: hue-rotate(-12deg) saturate(1.35);
-      transform: translateX(7px) scale(1.06);
+      filter: hue-rotate(-12deg) saturate(1.3);
+      transform: translateX(6px) scale(1.05);
       box-shadow:
-        0 0 24px rgba(56,189,248,0.9),
-        0 0 110px rgba(56,189,248,0.7);
+        0 0 24px rgba(56,189,248,0.85),
+        0 0 90px rgba(56,189,248,0.7);
     }
 
     .hub.left-focus::before {
-      opacity: 0.75;
-      filter: blur(28px) saturate(1.3);
+      opacity: 0.7;
+      filter: blur(22px);
       transform: translateX(-4px);
     }
 
     .hub.right-focus::before {
-      opacity: 0.75;
-      filter: blur(28px) saturate(1.3);
+      opacity: 0.7;
+      filter: blur(22px);
       transform: translateX(4px);
     }
 
@@ -388,8 +311,8 @@
       .half { flex: 1; }
       .half:hover { flex: 1; transform: none; filter: none; }
       .left-content, .right-content { padding: 1.5rem 1.25rem; }
-      .hub-label { bottom: -2.1rem; font-size: 0.6rem; white-space: normal; }
-      .hub { width: 230px; max-width: 230px; }
+      .hub-label { bottom: -2rem; font-size: 0.6rem; white-space: normal; }
+      .hub { width: 220px; max-width: 220px; }
     }
   </style>
 </head>
@@ -404,7 +327,7 @@
           CONNECT YOUR WALLET, PULL LIVE HOLDERS FROM <span>XDEX TOKENS</span>,  
           AND STREAM TARGETED AIRDROPS DIRECTLY FROM YOUR BALANCE.
           <br /><br />
-          PRECISION DISTRIBUTION ON A RETRO TERMINAL RAIL.
+          PRECISION DISTRIBUTION ON A CLEAN RETRO TERMINAL.
         </div>
         <div class="left-footer">
           STATUS: TERMINAL ONLINE · AWAITING SOURCE MINT
@@ -419,8 +342,8 @@
         <div class="right-title">INCINERATION PROTOCOL</div>
         <p class="right-sub">
           Route accounts into the burn chamber, vaporise unwanted tokens, and permanently
-          close dead weight positions. Surgical blue‑fire control for operators who know
-          that deletion is part of design.
+          close dead weight positions. Neon blue control surface for operators who design
+          with destruction in mind.
         </p>
         <div class="right-chip">
           <span class="right-chip-dot"></span>
