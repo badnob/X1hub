@@ -5,15 +5,12 @@
   <title>X1 Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts similar to your existing UIs -->
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body { height: 100%; overflow: hidden; }
-
     body {
       font-family: 'Exo 2', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #000;
@@ -106,9 +103,7 @@
       line-height: 1.5;
     }
 
-    .left-body span {
-      color: #55ff77;
-    }
+    .left-body span { color: #55ff77; }
 
     .left-footer {
       margin-top: 1.4rem;
@@ -239,7 +234,7 @@
       pointer-events: auto;
       transition: transform 0.4s ease;
       border-radius: 50%;
-      padding: 6px; /* ring thickness */
+      padding: 6px;
       background:
         radial-gradient(circle at 30% 0%, rgba(255,255,255,0.35), transparent 55%),
         conic-gradient(
@@ -311,7 +306,6 @@
 
     .hub-label span { opacity: 0.7; }
 
-    /* Hover auras */
     .hub.left-focus img {
       filter: hue-rotate(18deg) saturate(1.4);
       transform: translateX(-6px) scale(1.06);
@@ -340,7 +334,6 @@
       transform: translateX(4px);
     }
 
-    /* Mobile: stack halves, keep emblem center */
     @media (max-width: 768px) {
       .split-root { flex-direction: column; }
       .half { flex: 1; }
@@ -352,7 +345,6 @@
 </head>
 <body>
   <div class="split-root">
-    <!-- LEFT HALF: MATRIX HOLDERS/AIRDROP TOOL -->
     <div class="half left" data-target="https://home-5020064604.app-ionos.space/">
       <div class="left-content">
         <div class="left-header">X1 // HOLDER MATRIX</div>
@@ -369,7 +361,6 @@
       </div>
     </div>
 
-    <!-- RIGHT HALF: X1NERATOR INCINERATOR -->
     <div class="half right" data-target="https://x1nerator.xyz/">
       <div class="right-content">
         <div class="right-eyebrow">X1NERATOR</div>
@@ -385,11 +376,11 @@
       </div>
     </div>
 
-    <!-- CENTER EMBLEM -->
     <div class="hub-wrap">
       <div class="hub" id="hub">
         <div class="hub-inner">
-          <img src="IronMan-X1.jpg" alt="X1 Iron Emblem" />
+          <!-- IMPORTANT: exact filename with space + PNG -->
+          <img src="IronMan X1.png" alt="X1 Iron Emblem" />
         </div>
         <div class="hub-label">
           <span>ALIGNMENT: LEFT = DISTRIBUTE · RIGHT = DESTROY</span>
@@ -426,7 +417,6 @@
       });
     });
 
-    // Global pointer movement for desktop
     document.addEventListener("mousemove", (e) => {
       const w = window.innerWidth;
       if (w <= 768) return;
