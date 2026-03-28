@@ -2,24 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Iron X1 Hub</title>
+  <title>X1 Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts to match your existing pages -->
+  <!-- Fonts similar to your existing UIs -->
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      height: 100%;
-      overflow: hidden;
-    }
+    html, body { height: 100%; overflow: hidden; }
 
     body {
       font-family: 'Exo 2', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -52,97 +45,17 @@
       z-index: 1;
     }
 
-    /* LEFT: X1NERATOR / nebula aesthetic */
+    /* LEFT: MATRIX HOLDERS/AIRDROP TOOL (green CRT) */
     .left {
-      --color-primary: #38bdf8;
-      --color-primary-rgb: 56,189,248;
-      --color-accent: #7dd3fc;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(56,189,248,0.18) 0, transparent 55%),
-        radial-gradient(circle at 75% 90%, rgba(124,58,237,0.22) 0, transparent 60%),
-        radial-gradient(circle at 0% 100%, rgba(16,185,129,0.18) 0, transparent 55%),
-        #010410;
-      border-right: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .left::before {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16) 0, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(56,189,248,0.18) 0, transparent 65%);
-      opacity: 0.7;
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    .left-content {
-      position: relative;
-      padding: 2rem;
-      text-align: left;
-      max-width: 480px;
-      z-index: 1;
-    }
-
-    .left-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: #7dd3fc;
-      opacity: 0.85;
-      margin-bottom: 0.75rem;
-    }
-
-    .left-title {
-      font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
-      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .left-sub {
-      font-size: 0.9rem;
-      color: #cbd5f5;
-      max-width: 22rem;
-      line-height: 1.45;
-      opacity: 0.9;
-    }
-
-    .left-chip {
-      margin-top: 1.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.75rem;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.8);
-      border: 1px solid rgba(56,189,248,0.45);
-      box-shadow:
-        0 0 14px rgba(56,189,248,0.55),
-        inset 0 0 10px rgba(15,23,42,0.9);
-    }
-
-    .left-chip-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34,197,94,0.9);
-    }
-
-    /* RIGHT: Matrix / neon terminal aesthetic */
-    .right {
       background-color: #000000;
       color: #00ff41;
       font-family: 'Courier New', Courier, monospace;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300ff41' fill-opacity='0.03'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");
       background-size: 150px 150px;
+      border-right: 1px solid rgba(148, 163, 184, 0.4);
     }
 
-    .right::before {
+    .left::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -159,7 +72,7 @@
       pointer-events: none;
     }
 
-    .right-content {
+    .left-content {
       position: relative;
       padding: 2rem;
       max-width: 520px;
@@ -173,7 +86,7 @@
       z-index: 1;
     }
 
-    .right-header {
+    .left-header {
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.25em;
@@ -182,22 +95,22 @@
       text-shadow: 0 0 8px rgba(0,255,65,0.6);
     }
 
-    .right-title {
+    .left-title {
       font-size: 1.4rem;
       margin-bottom: 0.75rem;
       text-shadow: 0 0 8px rgba(0,255,65,0.6);
     }
 
-    .right-body {
+    .left-body {
       font-size: 0.85rem;
       line-height: 1.5;
     }
 
-    .right-body span {
+    .left-body span {
       color: #55ff77;
     }
 
-    .right-footer {
+    .left-footer {
       margin-top: 1.4rem;
       font-size: 0.75rem;
       color: #00b32e;
@@ -228,6 +141,85 @@
           inset 0 0 15px rgba(0,255,65,0.1);
         border-color: #00ff41;
       }
+    }
+
+    /* RIGHT: X1NERATOR BLUE SCI-FI INCINERATOR */
+    .right {
+      --color-primary: #38bdf8;
+      --color-primary-rgb: 56,189,248;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56,189,248,0.18) 0, transparent 55%),
+        radial-gradient(circle at 75% 90%, rgba(124,58,237,0.22) 0, transparent 60%),
+        radial-gradient(circle at 0% 100%, rgba(16,185,129,0.18) 0, transparent 55%),
+        #010410;
+    }
+
+    .right::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16) 0, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(56,189,248,0.18) 0, transparent 65%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .right-content {
+      position: relative;
+      padding: 2rem;
+      text-align: left;
+      max-width: 480px;
+      z-index: 1;
+    }
+
+    .right-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #7dd3fc;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    .right-title {
+      font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .right-sub {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      max-width: 22rem;
+      line-height: 1.45;
+      opacity: 0.9;
+    }
+
+    .right-chip {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(56,189,248,0.45);
+      box-shadow:
+        0 0 14px rgba(56,189,248,0.55),
+        inset 0 0 10px rgba(15,23,42,0.9);
+    }
+
+    .right-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #ef4444;
+      box-shadow: 0 0 10px rgba(239,68,68,0.9);
     }
 
     /* CENTER EMBLEM */
@@ -268,11 +260,11 @@
       border-radius: 26px;
       background: conic-gradient(
         from 200deg,
-        rgba(56,189,248,0.9),
-        rgba(56,189,248,0.2),
         rgba(0,255,65,0.9),
         rgba(0,255,65,0.2),
-        rgba(56,189,248,0.9)
+        rgba(56,189,248,0.9),
+        rgba(56,189,248,0.2),
+        rgba(0,255,65,0.9)
       );
       opacity: 0.35;
       filter: blur(26px);
@@ -295,94 +287,78 @@
       font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
     }
 
-    .hub-label span {
-      opacity: 0.7;
-    }
+    .hub-label span { opacity: 0.7; }
 
     /* Hover auras */
     .hub.left-focus img {
-      filter: hue-rotate(-10deg) saturate(1.2);
-      transform: translateX(-8px) scale(1.03);
-      box-shadow:
-        0 0 18px rgba(56,189,248,0.8),
-        0 0 100px rgba(56,189,248,0.5);
-    }
-
-    .hub.right-focus img {
       filter: hue-rotate(18deg) saturate(1.35);
-      transform: translateX(8px) scale(1.03);
+      transform: translateX(-8px) scale(1.03);
       box-shadow:
         0 0 20px rgba(0,255,65,0.9),
         0 0 110px rgba(0,255,65,0.55);
     }
 
+    .hub.right-focus img {
+      filter: hue-rotate(-10deg) saturate(1.2);
+      transform: translateX(8px) scale(1.03);
+      box-shadow:
+        0 0 18px rgba(56,189,248,0.8),
+        0 0 100px rgba(56,189,248,0.5);
+    }
+
     .hub.left-focus::before {
-      opacity: 0.55;
-      filter: blur(26px) saturate(1.2);
+      opacity: 0.65;
+      filter: blur(26px) saturate(1.4);
       transform: translateX(-4px);
     }
 
     .hub.right-focus::before {
-      opacity: 0.65;
-      filter: blur(26px) saturate(1.4);
+      opacity: 0.55;
+      filter: blur(26px) saturate(1.2);
       transform: translateX(4px);
     }
 
     /* Mobile: stack halves, keep emblem center */
     @media (max-width: 768px) {
-      .split-root {
-        flex-direction: column;
-      }
-      .half {
-        flex: 1;
-      }
-      .half:hover {
-        flex: 1;
-        transform: none;
-        filter: none;
-      }
-      .left-content,
-      .right-content {
-        padding: 1.5rem 1.25rem;
-      }
-      .hub-label {
-        bottom: -2rem;
-        font-size: 0.6rem;
-      }
+      .split-root { flex-direction: column; }
+      .half { flex: 1; }
+      .half:hover { flex: 1; transform: none; filter: none; }
+      .left-content, .right-content { padding: 1.5rem 1.25rem; }
+      .hub-label { bottom: -2rem; font-size: 0.6rem; white-space: normal; }
     }
   </style>
 </head>
 <body>
   <div class="split-root">
-    <!-- LEFT HALF: X1NERATOR SPACE UI -->
+    <!-- LEFT HALF: MATRIX HOLDERS/AIRDROP TOOL -->
     <div class="half left" data-target="https://home-5020064604.app-ionos.space/">
       <div class="left-content">
-        <div class="left-eyebrow">X1 CONTROL</div>
-        <div class="left-title">Operations Console</div>
-        <p class="left-sub">
-          Dial into the structured X1 toolset. Manage burns, distributions, and on‑chain ops from a precise control surface.
-        </p>
-        <div class="left-chip">
-          <span class="left-chip-dot"></span>
-          <span>Route traffic to Home Space</span>
+        <div class="left-header">X1 // HOLDER MATRIX</div>
+        <div class="left-title">&gt; FETCH + AIRDROP</div>
+        <div class="left-body">
+          CONNECT YOUR WALLET, PULL LIVE HOLDERS FROM <span>XDEX TOKENS</span>,  
+          AND STREAM TARGETED AIRDROPS DIRECTLY FROM YOUR BALANCE.
+          <br /><br />
+          BUILT FOR PRECISE DISTRIBUTION. NO FLUFF. JUST PURE FLOW.
+        </div>
+        <div class="left-footer">
+          STATUS: TERMINAL ONLINE · AWAITING SOURCE MINT
         </div>
       </div>
     </div>
 
-    <!-- RIGHT HALF: MATRIX TERMINAL -->
+    <!-- RIGHT HALF: X1NERATOR INCINERATOR -->
     <div class="half right" data-target="https://x1nerator.xyz/">
       <div class="right-content">
-        <div class="right-header">X1NERATOR // MATRIX TERMINAL</div>
-        <div class="right-title">> ACCESS CORE FIREWALL</div>
-        <div class="right-body">
-          INIT SEQUENCE: <span>READY</span><br />
-          WALLET LINK: <span>AWAITING HANDSHAKE</span><br />
-          <br />
-          ENTER THE HIGH‑VOLTAGE SIDE OF THE X1 STACK.  
-          BURN. MINT. DISTRIBUTE. EXECUTE.
-        </div>
-        <div class="right-footer">
-          NOTE: All operations are final. Proceed only if you accept full responsibility.
+        <div class="right-eyebrow">X1NERATOR</div>
+        <div class="right-title">Incineration Protocol</div>
+        <p class="right-sub">
+          Route accounts into the burn chamber, vaporise unwanted tokens, and permanently
+          close dead weight positions. Precision‑grade incineration with X1‑grade warnings.
+        </p>
+        <div class="right-chip">
+          <span class="right-chip-dot"></span>
+          <span>Engage burn sequence at x1nerator.xyz</span>
         </div>
       </div>
     </div>
@@ -390,9 +366,9 @@
     <!-- CENTER EMBLEM -->
     <div class="hub-wrap">
       <div class="hub" id="hub">
-        <img src="IronMan-X1.jpg" alt="X1 Iron Hub" />
+        <img src="IronMan-X1.jpg" alt="X1 Iron Emblem" />
         <div class="hub-label">
-          <span>SWITCH ALIGNMENT • LEFT = CONTROL · RIGHT = CHAOS</span>
+          <span>ALIGNMENT: LEFT = DISTRIBUTE · RIGHT = DESTROY</span>
         </div>
       </div>
     </div>
@@ -419,9 +395,7 @@
         }
       });
 
-      half.addEventListener("mouseleave", () => {
-        clearFocus();
-      });
+      half.addEventListener("mouseleave", clearFocus);
 
       half.addEventListener("click", () => {
         window.location.href = target;
