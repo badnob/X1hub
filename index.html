@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <title>X1 Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+  />
 
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
@@ -51,7 +54,6 @@
       font-family: 'Courier New', Courier, monospace;
     }
 
-    /* simple CRT scanlines */
     .left::before {
       content: "";
       position: absolute;
@@ -190,7 +192,7 @@
         0 0 24px rgba(248,113,113,0.7);
     }
 
-    /******** CENTER EMBLEM – CLEAN ********/
+    /******** CENTER EMBLEM ********/
     .hub-wrap {
       position: absolute;
       inset: 0;
@@ -276,7 +278,6 @@
       50% { transform: translateY(-6px) scale(1.02); }
     }
 
-    /* Alignment auras */
     .hub.left-focus img {
       filter: hue-rotate(18deg) saturate(1.4);
       transform: translateX(-6px) scale(1.05);
@@ -307,12 +308,52 @@
 
     /******** MOBILE ********/
     @media (max-width: 768px) {
-      .split-root { flex-direction: column; }
-      .half { flex: 1; }
-      .half:hover { flex: 1; transform: none; filter: none; }
-      .left-content, .right-content { padding: 1.5rem 1.25rem; }
-      .hub-label { bottom: -2rem; font-size: 0.6rem; white-space: normal; }
-      .hub { width: 220px; max-width: 220px; }
+      html, body {
+        height: auto;
+        overflow: auto;
+      }
+
+      .split-root {
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .half {
+        flex: 0 0 auto;
+        min-height: 50vh;
+        transform: none !important;
+        filter: none !important;
+      }
+
+      .half:hover {
+        flex: 0 0 auto;
+      }
+
+      .left-content,
+      .right-content {
+        padding: 1.5rem 1.25rem;
+        max-width: 100%;
+      }
+
+      .hub-wrap {
+        position: fixed;
+        left: 50%;
+        right: auto;
+        bottom: 1.5rem;
+        top: auto;
+        transform: translateX(-50%);
+        align-items: flex-end;
+        pointer-events: none;
+      }
+
+      .hub {
+        width: 180px;
+        max-width: 180px;
+      }
+
+      .hub-label {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -395,7 +436,8 @@
 
     document.addEventListener("mousemove", (e) => {
       const w = window.innerWidth;
-      if (w <= 768) return;
+      if (w <= 768) return;  // no hover logic on mobile
+
       if (e.clientX < w / 2) {
         hub.classList.add("left-focus");
         hub.classList.remove("right-focus");
